@@ -1,5 +1,14 @@
 import nltk
 nltk.download('stopwords')
+
+import spacy
+try:
+    nlp = spacy.load('en_core_web_sm')
+except OSError:
+    import subprocess
+    subprocess.run(["python", "-m", "spacy", "download", "en_core_web_sm"])
+    nlp = spacy.load('en_core_web_sm')
+
 import streamlit as st
 import numpy as np
 import pandas as pd
